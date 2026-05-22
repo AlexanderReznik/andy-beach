@@ -18,19 +18,17 @@
   background: var(--no-play-bg);
 }
 
-/* Today gets a sun-yellow top bar and slightly different treatment */
+/* Today gets a sun-yellow top bar via gradient so layout is unaffected */
 .day-cell--today {
-  background: #FFF9EE;
-  border-top: 4px solid var(--sun);
-  position: relative;
+  background-image: linear-gradient(var(--sun) 4px, transparent 4px);
 }
 
 .day-cell--today.day-cell--plays {
-  background: #F0FAF4;
+  background-color: #F0FAF4;
 }
 
 .day-cell--today.day-cell--no-play {
-  background: #FDF5F4;
+  background-color: #FDF5F4;
 }
 
 /* Header row: day abbreviation + today badge */
@@ -195,8 +193,7 @@
   }
 
   .day-cell--today {
-    border-top: none;
-    border-left: 4px solid var(--sun);
+    background-image: linear-gradient(to right, var(--sun) 4px, transparent 4px);
   }
 
   .day-cell__header {
