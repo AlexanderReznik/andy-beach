@@ -122,4 +122,9 @@ body {
     grid-template-columns: 1fr;
     border-radius: 4px;
   }
+
+  .day-cell--empty,
+  .calendar__week-sep {
+    display: none;
+  }
 }
