@@ -172,6 +172,11 @@
   background: var(--play-badge);
 }
 
+.day-cell__excuse-btn--used {
+  visibility: hidden;
+  pointer-events: none;
+}
+
 /* Mobile: stack vertically, show as horizontal list items */
 @media (max-width: 640px) {
   .day-cell {

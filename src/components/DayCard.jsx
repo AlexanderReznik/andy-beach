@@ -66,8 +66,11 @@ export function DayCard({ date, maxTemp, precipitation, windSpeed, plays, reason
         <p className="day-cell__reason">{effectiveReason}</p>
       </div>
 
-      {plays && !excuse && (
-        <button className="day-cell__excuse-btn" onClick={() => setExcuse(pickExcuse())}>
+      {plays && (
+        <button
+          className={`day-cell__excuse-btn${excuse ? ' day-cell__excuse-btn--used' : ''}`}
+          onClick={() => setExcuse(pickExcuse())}
+        >
           Come up with excuse anyway
         </button>
       )}
