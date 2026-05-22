@@ -9,6 +9,8 @@ Andy plays when all three conditions are met:
 
 Weather data comes from [Open-Meteo](https://open-meteo.com/) — free, no API key required.
 
+**Live:** https://andy-beach.vercel.app
+
 ## Development
 
 ```bash
