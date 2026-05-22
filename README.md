@@ -11,6 +11,8 @@ Weather data comes from [Open-Meteo](https://open-meteo.com/) — free, no API k
 
 **Live:** https://andy-beach.vercel.app
 
+<img width="1974" height="1890" alt="image" src="https://github.com/user-attachments/assets/8e4162fc-b509-44b0-8600-8ba0b7dadadb" />
+
 ## Development
 
 ```bash
