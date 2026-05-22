@@ -10,6 +10,30 @@
   border-right: none;
 }
 
+.day-cell--empty {
+  background-color: var(--cream);
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 5px,
+    rgba(180, 155, 120, 0.1) 5px,
+    rgba(180, 155, 120, 0.1) 6px
+  );
+}
+
+.day-cell--empty .day-cell__abbr {
+  color: #C5B49A;
+}
+
+.day-cell--empty .day-cell__date-num {
+  color: #C5B49A;
+}
+
+.day-cell__empty-body {
+  flex: 1;
+  border-top: 1px solid var(--border);
+}
+
 .day-cell--plays {
   background: var(--play-bg);
 }

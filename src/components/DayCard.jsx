@@ -25,6 +25,22 @@ function pickExcuse() {
   return EXCUSES[Math.floor(Math.random() * EXCUSES.length)]
 }
 
+export function EmptyCard({ date }) {
+  const d = new Date(`${date}T12:00:00`)
+  const dayAbbr = DAY_ABBR[d.getDay()]
+  const dayNum = d.getDate()
+
+  return (
+    <div className="day-cell day-cell--empty">
+      <div className="day-cell__header">
+        <span className="day-cell__abbr">{dayAbbr}</span>
+      </div>
+      <div className="day-cell__date-num">{dayNum}</div>
+      <div className="day-cell__empty-body" />
+    </div>
+  )
+}
+
 export function DayCard({ date, maxTemp, precipitation, windSpeed, plays, reason, isToday }) {
   const [excuse, setExcuse] = useState(null)
 
