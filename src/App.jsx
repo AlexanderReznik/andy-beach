@@ -73,14 +73,18 @@ export default function App() {
         </div>
       </header>
       <main className="calendar">
-        {calendarEntries.map(entry =>
-          entry.placeholder
+        {calendarEntries.flatMap((entry, i) => {
+          const card = entry.placeholder
             ? <EmptyCard key={`empty-${entry.date}`} date={entry.date} />
             : <DayCard key={entry.date} {...entry} />
-        )}
+          if (isExpanded && i > 0 && i % 7 === 0) {
+            return [<div key={`sep-${i}`} className="calendar__week-sep" />, card]
+          }
+          return [card]
+        })}
       </main>
       {hasMore && (
-        <button className="app__load-more" onClick={() => setVisibleCount(c => c + PAGE_SIZE)}>
+        <button className="app__load-more" onClick={() => setVisibleCount(days.length)}>
           Show more days
         </button>
       )}

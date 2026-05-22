@@ -74,6 +74,12 @@ body {
 }
 
 /* Loading / error */
+.calendar__week-sep {
+  grid-column: 1 / -1;
+  height: 3px;
+  background: var(--navy);
+}
+
 .app__load-more {
   display: block;
   margin: 1.25rem auto 0;
