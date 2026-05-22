@@ -214,11 +214,6 @@
   background: var(--play-badge);
 }
 
-.day-cell__excuse-btn--used {
-  visibility: hidden;
-  pointer-events: none;
-}
-
 /* Mobile: stack vertically, show as horizontal list items */
 @media (max-width: 640px) {
   .day-cell {
@@ -267,6 +262,12 @@
     padding: 0;
     flex-direction: row;
     align-items: center;
+    flex: 0 0 100%;
+  }
+
+  .day-cell__excuse-btn {
+    flex: 0 0 100%;
+    margin: 0;
     width: 100%;
   }
 }
