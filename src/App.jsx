@@ -4,8 +4,11 @@ import { predict } from './prediction'
 import { DayCard } from './components/DayCard'
 import './App.css'
 
+const PAGE_SIZE = 7
+
 export default function App() {
   const [days, setDays] = useState([])
+  const [visibleCount, setVisibleCount] = useState(PAGE_SIZE)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
 
@@ -29,6 +32,9 @@ export default function App() {
   if (loading) return <div className="status">Loading London forecast...</div>
   if (error) return <div className="status status--error">Failed to load forecast: {error}</div>
 
+  const visibleDays = days.slice(0, visibleCount)
+  const hasMore = visibleCount < days.length
+
   return (
     <div className="app">
       <header className="app__header">
@@ -39,10 +45,15 @@ export default function App() {
         </div>
       </header>
       <main className="calendar">
-        {days.map(day => (
+        {visibleDays.map(day => (
           <DayCard key={day.date} {...day} />
         ))}
       </main>
+      {hasMore && (
+        <button className="app__load-more" onClick={() => setVisibleCount(c => c + PAGE_SIZE)}>
+          Show more days
+        </button>
+      )}
     </div>
   )
 }

@@ -12,7 +12,7 @@ export async function fetchForecast() {
     longitude: LONDON.longitude,
     daily: DAILY_FIELDS,
     timezone: 'Europe/London',
-    forecast_days: 7,
+    forecast_days: 16,
   })
 
   const response = await fetch(`${BASE_URL}?${params}`)
