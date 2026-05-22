@@ -98,10 +98,27 @@
   line-height: 1;
   padding: 0 0.65rem 0.5rem;
   color: var(--navy);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
 }
 
 .day-cell--today .day-cell__date-num {
   color: var(--navy);
+}
+
+.day-cell__month {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #9A8B74;
+  line-height: 1;
+}
+
+.day-cell--empty .day-cell__month {
+  color: #C5B49A;
 }
 
 /* Weather stats */
@@ -235,6 +252,7 @@
     padding: 0;
     font-size: 1.8rem;
     width: 2.5rem;
+    gap: 0.1rem;
   }
 
   .day-cell__stats {

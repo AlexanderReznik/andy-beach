@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './DayCard.css'
 
 const DAY_ABBR = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 const EXCUSES = [
   "Forgot sunscreen, not risking it",
@@ -35,7 +36,10 @@ export function EmptyCard({ date }) {
       <div className="day-cell__header">
         <span className="day-cell__abbr">{dayAbbr}</span>
       </div>
-      <div className="day-cell__date-num">{dayNum}</div>
+      <div className="day-cell__date-num">
+        {dayNum}
+        <span className="day-cell__month">{MONTHS[d.getMonth()]}</span>
+      </div>
       <div className="day-cell__empty-body" />
     </div>
   )
@@ -58,7 +62,10 @@ export function DayCard({ date, maxTemp, precipitation, windSpeed, plays, reason
         {isToday && <span className="day-cell__today-badge">Today</span>}
       </div>
 
-      <div className="day-cell__date-num">{dayNum}</div>
+      <div className="day-cell__date-num">
+        {dayNum}
+        <span className="day-cell__month">{MONTHS[d.getMonth()]}</span>
+      </div>
 
       <div className="day-cell__stats">
         <div className="day-cell__stat">
