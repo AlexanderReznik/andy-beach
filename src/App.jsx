@@ -12,7 +12,12 @@ export default function App() {
   useEffect(() => {
     fetchForecast()
       .then(forecast => {
-        setDays(forecast.map(day => ({ ...day, ...predict(day) })))
+        const today = new Date().toLocaleDateString('sv')
+        setDays(forecast.map(day => ({
+          ...day,
+          ...predict(day),
+          isToday: day.date === today,
+        })))
         setLoading(false)
       })
       .catch(err => {
@@ -26,13 +31,18 @@ export default function App() {
 
   return (
     <div className="app">
-      <h1 className="app__title">Will Andy play beach volleyball?</h1>
-      <p className="app__subtitle">London forecast — plays when sunny (&gt;25°C), dry, and calm (&lt;30 km/h)</p>
-      <div className="app__cards">
+      <header className="app__header">
+        <div className="app__header-inner">
+          <p className="app__eyebrow">London · Beach Volleyball</p>
+          <h1 className="app__title">Will Andy play<span className="app__title-mark">?</span></h1>
+          <p className="app__subtitle">Plays when &gt;25°C, no rain, wind &lt;30 km/h</p>
+        </div>
+      </header>
+      <main className="calendar">
         {days.map(day => (
           <DayCard key={day.date} {...day} />
         ))}
-      </div>
+      </main>
     </div>
   )
 }
